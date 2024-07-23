@@ -3,3 +3,33 @@
     width: 100%;
     margin: 0 auto;
 }
+
+.home__products {
+    width: 1440px;
+    margin: 50px auto;
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    gap: 25px;
+    overflow-x: auto;
+    background-color: transparent;
+
+    /* width */
+    &::-webkit-scrollbar {
+        width: 10px;
+        height: 6px;
+    }
+
+    /* Track */
+    &::-webkit-scrollbar-track {
+        box-shadow: inset 0 0 5px grey;
+        border-radius: 10px;
+    }
+
+    /* Handle */
+    &::-webkit-scrollbar-thumb {
+        background: #343839;
+        border-radius: 10px;
+    }
+}

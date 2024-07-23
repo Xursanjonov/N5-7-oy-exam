@@ -11,15 +11,20 @@
 }
 
 .header {
-  width: 1440px;
+  max-width: 1533px;
+  width: 100%;
   margin: 0 auto;
+  top: 0;
   background-color: white;
-
+  position: sticky;
+  box-shadow: 0 0 8px #ddd;
+  z-index: 2004;
 }
 
 .header__nav {
-  width: 100%;
+  width: 1220px;
   margin: 0 auto;
+  background-color: white;
   display: flex;
   justify-content: space-between;
   align-items: center;
