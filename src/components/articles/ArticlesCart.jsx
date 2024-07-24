@@ -1,6 +1,6 @@
 import React, { memo } from 'react'
-import './articles-cart.scss'
 import { GrFormNextLink } from 'react-icons/gr'
+import './articles-cart.scss'
 
 const ArticlesCart = ({ image, title, btnLink }) => {
     // const suctomers

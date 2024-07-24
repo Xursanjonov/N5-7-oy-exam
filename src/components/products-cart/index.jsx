@@ -1,38 +1,39 @@
-import React, { memo, useState } from 'react';
-import images from '../../assets/images/img1.jpg'
-import { FaRegHeart } from 'react-icons/fa6';
-import './ProductsCart.scss';
+import React, { Fragment, memo, useState } from 'react'
+import { GrFormNextLink } from 'react-icons/gr'
+import ProductsItem from './ProductsItem'
+import Button from '../button'
+import './products-wrapper.scss'
 
-const ProductsCart = () => {
-    const [isHovered, setIsHovered] = useState(false);
+const ProductsWrapper = ({ products, categories }) => {
+    const [categorys, setCategorys] = useState(categories?.map(category => category?.name))
 
     return (
-        <div
-            className={`products-cart ${isHovered ? 'hovered' : ''}`}
-            onMouseEnter={() => setIsHovered(true)}
-            onMouseLeave={() => setIsHovered(false)}
-        >
-            <div className='product-tag'>
-                <span className="new">NEW</span>
-                <span className="discount">-50%</span>
+        <Fragment>
+            <div className="home__products-title">
+                <h3 className='home__products-title-h3'>New Arrivals</h3>
+                <Button title={'More Products'} icon={<GrFormNextLink fontSize={20} color='#0009' />} />
             </div>
-            <div className="wishlist-button">
-                <FaRegHeart color='black' fontSize={20} />
+            <ul className="home__categories">
+                {
+                    categories?.map(category => (
+                        <li disabled={categorys === category?.name} onClick={() => setCategorys(category?.name)} key={category?.id} className='home__categories-item'>
+                            <div className="item-img">
+                                <img className='item-img-image' src={category?.image} alt="" />
+                            </div>
+                            <p className='item-name'>{category?.name}</p>
+                        </li>
+                    ))
+                }
+            </ul>
+            <div className='home__products container__ns'>
+                {
+                    products?.map(product => (
+                        <ProductsItem key={product.id} product={product} />
+                    ))
+                }
             </div>
-            <figure className="product-image">
-                <img src={images} alt="Loveseat Sofa" />
-                <button className="add-to-cart-button">Add to cart</button>
-            </figure>
-            <div className="product-info">
-                <div className="product-rating">★★★★★</div>
-                <div className="product-name">Loveseat Sofa</div>
-                <div className="product-price">
-                    <span className="current-price">$199.00</span>
-                    <span className="original-price">$400.00</span>
-                </div>
-            </div>
-        </div>
-    );
-};
+        </Fragment>
+    )
+}
 
-export default memo(ProductsCart);
+export default memo(ProductsWrapper)

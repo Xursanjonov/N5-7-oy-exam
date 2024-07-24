@@ -8,7 +8,7 @@ const Sale = () => {
     return (
         <div className='sale'>
             <figure className='sale__img'>
-                <img className='sale__img-img' src={saleImage} alt="Sale up image" />
+                <img className='sale__img-image' src={saleImage} alt="Sale up image" />
             </figure>
             <div className="sale__info">
                 <h4 className='sale__info-h4'>SALE UP TO 35% OFF</h4>

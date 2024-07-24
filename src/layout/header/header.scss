@@ -1,5 +1,5 @@
 .header__top {
-  max-width: 1533px;
+  max-width: 1920px;
   width: 100%;
   margin: 0 auto;
   padding: 8px;
@@ -7,11 +7,11 @@
   align-items: center;
   justify-content: center;
   gap: 20px;
-  background-color: #ddd;
+  background-color: #F3F5F7;
 }
 
 .header {
-  max-width: 1533px;
+  max-width: 1920px;
   width: 100%;
   margin: 0 auto;
   top: 0;
@@ -22,7 +22,8 @@
 }
 
 .header__nav {
-  width: 1220px;
+  max-width: 1440px;
+  width: 100%;
   margin: 0 auto;
   background-color: white;
   display: flex;

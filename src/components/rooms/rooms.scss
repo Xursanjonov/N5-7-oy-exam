@@ -1,16 +1,17 @@
 .rooms {
-    width: 1440px;
-    height: 664px;
-    padding: 0px 160px;
-    margin: 0 auto;
+    max-width: 1480px;
+    width: 100%;
+    min-height: 664px;
+    margin: 30px auto 0;
+    padding: 0 20px;
     display: flex;
-    align-items: center;
-    justify-content: center;
+    justify-content: space-between;
     gap: 20px;
 }
 
 .room__2 {
-    width: 548px;
+    max-width: 650px;
+    width: 100%;
     height: 662px;
     margin: 0 auto;
     display: flex;
@@ -18,44 +19,88 @@
     gap: 25px;
 }
 
-.rooms1 {
-    width: 549px;
+.rooms__1 {
+    max-width: 650px;
+    width: 100%;
     height: 663px;
     margin: 0 auto;
-    // border: 3px solid #000;
     background: no-repeat url('../../assets/images/img1.jpg') 0 0 / 100% 100%;
     object-fit: contain;
+}
+
+.rooms1-title {
+    width: 360px;
+    height: 78px;
+    padding: 48px;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 10px;
+
+    .rooms1__h5 {
+        width: 360px;
+        height: 38px;
+        color: #141718;
+        font-family: Poppins;
+        font-size: 34px;
+        font-weight: 500;
+        line-height: 38px;
+        letter-spacing: -0.6000000238418579px;
+        text-align: left;
+    }
 }
 
 .rooms1__btn {
     width: 100px;
     height: 28px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 4px;
+    font-family: Inter;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 28px;
+    letter-spacing: -0.4000000059604645px;
+    text-align: left;
     border: 0;
+    background-color: transparent;
     border-bottom: 1px solid black;
 }
 
 .rooms3 {
-    width: 548px;
-    // border: 1px solid #000;
+    width: 100%;
     height: 319px;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
+    justify-content: end;
+    padding: 32px 40px;
     background: no-repeat url('../../assets/images/img3.png') 0 0 / 100% 100%;
     gap: 10px;
 }
 
 .rooms2 {
-    width: 548px;
-    // border: 1px solid #000;
+    width: 100%;
     height: 319px;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
+    justify-content: end;
+    padding: 32px 40px;
     background: no-repeat url('../../assets/images/img2.png') 0 0 / 100% 100%;
     gap: 10px;
+}
+
+.rooms2-title {
+    max-width: 420px;
+    width: 100%;
+    height: 78px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    .rooms2__h5 {
+        font-family: Poppins;
+        font-size: 34px;
+        font-weight: 500;
+        line-height: 38px;
+        letter-spacing: -0.6000000238418579px;
+        text-align: left;
+    }
 }

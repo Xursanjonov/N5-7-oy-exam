@@ -1,9 +1,9 @@
-import React from 'react'
-import { memo } from 'react'
+import React, { memo } from 'react'
+import './loading.scss'
 
 const Loading = () => {
   return (
-    <div>Loading</div>
+    <span class="loader"></span>
   )
 }
 

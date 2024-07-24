@@ -1,8 +1,7 @@
-import React, { memo } from 'react'
+import React, { memo, useState } from 'react'
 import Hero from '../../components/hero'
 import Sale from '../../components/sale'
 import Newsletter from '../../components/newsletter'
-import ProductsCart from '../../components/products-cart'
 import Free from '../../components/free'
 import FreeShipping from '../../assets/icons/FreeShipping'
 import Money from '../../assets/icons/Money'
@@ -12,29 +11,24 @@ import ArticlesCart from '../../components/articles/ArticlesCart'
 import img1 from '../../assets/images/articles-1.png'
 import img2 from '../../assets/images/articles-2.png'
 import img3 from '../../assets/images/articles-3.png'
-import './home.scss'
 import { GrFormNextLink } from 'react-icons/gr'
 import Rooms from '../../components/rooms'
+import { useGetProductsQuery } from '../../context/api/productApi'
+import Loading from '../../components/loading'
+import { useGetCategoryQuery } from '../../context/api/categoryApi'
+import ProductsWrapper from '../../components/products-cart'
+import Button from '../../components/button'
+import './home.scss'
 
 const Home = () => {
+    const { data: categories, isFetching: categoryFetch } = useGetCategoryQuery()
+    const { data: products, isFetching } = useGetProductsQuery({ limit: 10, page: 1 })
 
-    return (
+    return isFetching ? <Loading /> : (
         <section className='home'>
             <Hero />
             <Rooms />
-            <div className='home__products container__ns'>
-                <ProductsCart />
-                <ProductsCart />
-                <ProductsCart />
-                <ProductsCart />
-                <ProductsCart />
-                <ProductsCart />
-                <ProductsCart />
-                <ProductsCart />
-                <ProductsCart />
-                <ProductsCart />
-                <ProductsCart />
-            </div>
+            <ProductsWrapper products={products} categories={categories} />
             <div className='home-frees'>
                 <Free icon={<FreeShipping />} h5={'Free Shipping'} p={'Order above $200'} />
                 <Free icon={<Money />} h5={'Money-back'} p={'30 days guarantee'} />
@@ -45,9 +39,7 @@ const Home = () => {
             <div className='articales'>
                 <div className='articales-title'>
                     <h1 className='articales-h1'>Articles</h1>
-                    <button className='articles-btn'>More Articles
-                        <GrFormNextLink fontSize={24} color='gray' />
-                    </button>
+                    <Button title={'More Articles'} icon={<GrFormNextLink fontSize={24} color='gray' />} />
                 </div>
                 <div className="articales-div">
                     <ArticlesCart image={img1} title={'7 ways to decor your home'} />
