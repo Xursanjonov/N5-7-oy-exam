@@ -2,6 +2,7 @@ import React, { memo, useState } from 'react';
 import images from '../../assets/images/empty.jpg'
 import { FaRegHeart } from 'react-icons/fa6';
 import './ProductsCart.scss';
+import { Link } from 'react-router-dom';
 
 const ProductsItem = ({ product }) => {
     const [isHovered, setIsHovered] = useState(false);
@@ -25,7 +26,7 @@ const ProductsItem = ({ product }) => {
             </figure>
             <div className="product-info">
                 <div className="product-rating">★★★★★</div>
-                <div className="product-name">{product?.id}. {product?.title}</div>
+                <Link to={`/shop/${product?.id}`} className="product-name">{product?.id}. {product?.title}</Link>
                 <div className="product-price">
                     <span className="current-price">${product?.price}</span>
                     <span className="original-price">${product?.oldPrice}</span>
