@@ -7,6 +7,7 @@ import Home from './pages/home/Home'
 import Shop from './pages/shop'
 import Blog from './pages/blog'
 import Contact from './pages/contact'
+import ProductDetail from './pages/detail'
 
 const App = () => {
 
@@ -18,6 +19,7 @@ const App = () => {
           <Route path='shop' element={<Shop />} />
           <Route path='blog' element={<Blog />} />
           <Route path='contact' element={<Contact />} />
+          <Route path='shop/:id' element={<ProductDetail />} />
         </Route>
       </Routes>
     </Fragment>

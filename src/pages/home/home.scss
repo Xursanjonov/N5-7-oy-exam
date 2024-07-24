@@ -4,20 +4,22 @@
 }
 
 .home-frees {
-    width: 1440px;
+    max-width: 1440px;
+    width: 100%;
     margin: 0 auto;
-    height: 316px;
+    min-height: 316px;
     padding: 48px 160px 48px 160px;
     gap: 24px;
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
     justify-content: center;
 }
 
 .articales {
-    max-width: 1440px;
+    max-width: 1480px;
     width: 100%;
-    height: 657px;
+    min-height: 657px;
     margin: 0 auto;
     padding: 80px 160px;
     display: flex;
@@ -34,8 +36,10 @@
     }
 
     .articales-div {
+        width: 100%;
         display: flex;
         align-items: center;
+        flex-wrap: wrap;
         justify-content: center;
         gap: 25px;
     }

@@ -1,7 +1,7 @@
 .sale {
     max-width: 1920px;
     width: 100%;
-    height: 532px;
+    min-height: 532px;
     margin: 0 auto;
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -10,6 +10,7 @@
 
 .sale__img {
     max-width: 960px;
+    min-width: 350px;
     width: 100%;
     height: 532px;
     margin: 0 auto;
@@ -60,6 +61,7 @@
     &-p {
         width: 452px;
         height: 64px;
+        word-break: break-all;
         font-family: Inter;
         font-size: 20px;
         font-weight: 400;
@@ -83,5 +85,29 @@
         line-height: 28px;
         letter-spacing: -0.4000000059604645px;
         text-align: left;
+    }
+}
+
+@media (max-width:768px) {
+    .sale {
+        width: 100%;
+        min-height: 532px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: 1fr;
+        background-color: #F3F5F7;
+    }
+
+    .sale__img {
+        max-width: 720px;
+        height: 532px;
+        margin: 0 auto;
+
+        &-image {
+            width: 100%;
+            height: 100%;
+            margin: 0 auto;
+            object-fit: cover;
+        }
     }
 }
