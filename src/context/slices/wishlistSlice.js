@@ -1,24 +1,25 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-    value: [] //JSON.parse(localStorage.getItem("wishlist")) || [],
+    value: JSON.parse(localStorage.getItem("like-data")) || [],
 };
 
 const wishlistSlice = createSlice({
     name: "heart",
     initialState,
     reducers: {
-        toggleHeart: (state, action) => {
-            let index = state.value.findIndex((i) => i._id === action.payload._id);
+        addToLike: (state, action) => {
+            console.log(action.payload)
+            let index = state.value.findIndex((i) => i.id === action.payload.id);
             if (index < 0) {
                 state.value = [...state.value, action.payload];
             } else {
-                state.value = state.value.filter((i) => i._id !== action.payload._id);
+                state.value = state.value.filter((i) => i.id !== action.payload.id);
             }
-            //   localStorage.setItem("wishlist", JSON.stringify(state.value));
+            localStorage.setItem("like-data", JSON.stringify(state.value));
         }
     },
 });
 
-export const { addToHeart } = wishlistSlice.actions;
+export const { addToLike } = wishlistSlice.actions;
 export default wishlistSlice.reducer;

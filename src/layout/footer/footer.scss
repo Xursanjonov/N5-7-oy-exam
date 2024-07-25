@@ -12,24 +12,23 @@
 }
 
 .footer__top {
-    max-width: 1480px;
+    max-width: 1150px;
     width: 100%;
     margin: 0 auto;
-    padding: 0 20px;
     display: flex;
     align-items: center;
     flex-wrap: wrap;
     justify-content: space-between;
-    // background-color: gray;
-
+    
     .footer__top-item {
         display: flex;
         align-items: center;
         justify-content: center;
-        gap: 20px;
+        // gap: 20px;
 
         .footer-logo {
-            width: 105px;
+            width: 125px;
+            // background-color: gray;
             height: 24px;
             font-family: Poppins;
             font-size: 24px;
@@ -48,9 +47,10 @@
         }
 
         .gift {
-            width: 140px;
+            width: 180px;
             transform: translateY(10%);
             height: 22px;
+            margin-left: 10px;
             font-family: Inter;
             font-size: 14px;
             font-weight: 400;
@@ -80,7 +80,7 @@
 }
 
 .footer-line {
-    max-width: 1440px;
+    max-width: 1150px;
     width: 100%;
     margin: 40px auto 0;
     height: 1px;
@@ -88,9 +88,8 @@
 }
 
 .footer__bottom {
-    max-width: 1480px;
+    max-width: 1150px;
     width: 100%;
-    padding: 0 20px;
     display: flex;
     align-items: center;
     justify-content: space-between;

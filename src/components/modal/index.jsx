@@ -1,9 +1,16 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import { memo } from 'react'
+import './modal.scss'
 
-const Modal = () => {
+const Modal = ({ title, children, close }) => {
     return (
-        <div>Modal</div>
+        <Fragment>
+            <div onClick={() => close(null)} className='overlay'></div>
+            <div className='modal'>
+                <h1 className='title'>{title ?? 'Modal'}</h1>
+                {children}
+            </div>
+        </Fragment>
     )
 }
 

@@ -3,16 +3,23 @@ import { Link, NavLink, useNavigate } from 'react-router-dom'
 import SearchIcon from '../../assets/icons/SearchIcon'
 import UserIcon from '../../assets/icons/UserIcon'
 import ShopIcon from '../../assets/icons/ShopIcon'
+import WishListIcon from '../../assets/icons/WishListIcon'
+import CloseIcon from '../../assets/icons/CloseIcon'
+import HeaderTopIcon from '../../assets/icons/HeaderTopIcon'
+import Button from '../../components/button'
 import './header.scss'
 
 const Header = () => {
     const navigate = useNavigate()
+    const [show, setShow] = React.useState(true)
 
     return (
         <Fragment>
-            <div className="header__top">
+            <div className={`${show ? 'header__top' : 'none'}`}>
+                <span className='header__top-icon'><HeaderTopIcon /></span>
                 <p>30% off storewide — Limited time!</p>
-                <a href="/shop">Shop Now</a>
+                <Button title={'Shop Now'} icon={true} color={'color'} />
+                <button onClick={() => setShow(!show)} className='header__top-close'> <CloseIcon fsize={20} /> </button>
             </div>
             <header className='header'>
                 <nav className='header__nav'>
@@ -27,6 +34,7 @@ const Header = () => {
                         <div className='header__nav__div__btns'>
                             <button className='btns-item'> <SearchIcon fsize={20} /> </button>
                             <button onClick={() => navigate('/login')} className='btns-item'> <UserIcon fsize={20} /> </button>
+                            <button onClick={() => navigate('/like')} className='btns-item'> <WishListIcon fsize={20} /> </button>
                             <button onClick={() => navigate('/cart')} className='btns-item'> <ShopIcon fsize={20} /> </button>
                         </div>
                     </ul>

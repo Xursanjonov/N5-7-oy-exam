@@ -2,34 +2,67 @@
   max-width: 1920px;
   width: 100%;
   margin: 0 auto;
-  padding: 8px;
+  padding: 10px;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 20px;
+  position: relative;
+  font-family: Inter;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 22px;
+  text-align: center;
+  color: #343839;
   background-color: #F3F5F7;
+
+
+  &-icon {
+    padding-bottom: 2px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &-close {
+    right: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    border: 0;
+    background-color: transparent;
+  }
+}
+
+.color {
+  color: #377DFF;
+  border-color: #377DFF;
+}
+
+.none {
+  display: none;
 }
 
 .header {
   max-width: 1920px;
   width: 100%;
   margin: 0 auto;
+  padding: 20px 0;
   top: 0;
   background-color: white;
   position: sticky;
-  box-shadow: 0 0 8px #ddd;
-  z-index: 2004;
-}
+  border-bottom: 1px solid #ddd;
+  z-index: 2004;}
 
 .header__nav {
-  max-width: 1440px;
+  max-width: 1150px;
   width: 100%;
   margin: 0 auto;
   background-color: white;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 0;
 
   .logo {
     font-family: Poppins;
@@ -50,7 +83,6 @@
 
   .header__nav__ul {
     width: 100%;
-    padding: 3px 20px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -61,10 +93,21 @@
       justify-content: center;
       gap: 20px;
 
-      .lists-item {
+      a {
         font-family: Space Grotesk;
         font-weight: 600;
         line-height: 24px;
+        color: #6C7275;
+
+        &:hover {
+          color: black;
+          font-weight: 600;
+        }
+
+        &.active {
+          font-weight: 600;
+          color: black;
+        }
       }
 
     }
@@ -85,8 +128,4 @@
 
     }
   }
-}
-
-.active {
-  color: blue;
 }

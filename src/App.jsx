@@ -1,6 +1,4 @@
-import React from 'react'
-import { Fragment } from 'react'
-import { memo } from 'react'
+import React, { memo, Fragment } from 'react'
 import { Route, Routes } from 'react-router-dom'
 import Layout from './layout'
 import Home from './pages/home/Home'
@@ -8,6 +6,8 @@ import Shop from './pages/shop'
 import Blog from './pages/blog'
 import Contact from './pages/contact'
 import ProductDetail from './pages/detail'
+import Cart from './pages/cart'
+import WishList from './pages/wish-list'
 
 const App = () => {
 
@@ -20,6 +20,8 @@ const App = () => {
           <Route path='blog' element={<Blog />} />
           <Route path='contact' element={<Contact />} />
           <Route path='shop/:id' element={<ProductDetail />} />
+          <Route path='like' element={<WishList />} />
+          <Route path='cart' element={<Cart />} />
         </Route>
       </Routes>
     </Fragment>

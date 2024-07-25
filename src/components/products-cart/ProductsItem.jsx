@@ -1,11 +1,14 @@
 import React, { memo, useState } from 'react';
-import images from '../../assets/images/empty.jpg'
-import { FaRegHeart } from 'react-icons/fa6';
-import './ProductsCart.scss';
+import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
+import { FaRegHeart } from 'react-icons/fa6';
+import images from '../../assets/images/empty.jpg'
+import { addToLike } from '../../context/slices/wishlistSlice'
+import './ProductsCart.scss';
 
 const ProductsItem = ({ product }) => {
     const [isHovered, setIsHovered] = useState(false);
+    const dispatch = useDispatch()
 
     return (
         <div
@@ -17,7 +20,7 @@ const ProductsItem = ({ product }) => {
                 <span className="new">NEW</span>
                 <span className="discount">-50%</span>
             </div>
-            <div className="wishlist-button">
+            <div onClick={() => dispatch(addToLike(product))} className="wishlist-button">
                 <FaRegHeart color='black' fontSize={20} />
             </div>
             <figure className="product-image">
