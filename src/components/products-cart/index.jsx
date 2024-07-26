@@ -1,11 +1,26 @@
-import React, { Fragment, memo, useState } from 'react'
+import { Fragment, memo, useState } from 'react'
 import { GrFormNextLink } from 'react-icons/gr'
+import { useGetProductsQuery } from '../../context/api/productApi';
+import ProductsLoading from '../loading/ProductsLoading';
 import ProductsItem from './ProductsItem'
 import Button from '../button'
-import './products-wrapper.scss'
+// Pagination
+import * as React from 'react';
+import Pagination from '@mui/material/Pagination';
+import Stack from '@mui/material/Stack';
+// Pagination end
+import './products-wrapper.scss';
 
-const ProductsWrapper = ({ products, categories }) => {
+const ProductsWrapper = ({ categories }) => {
+    const [page, setPage] = useState(1)
+    const { data: dataLength } = useGetProductsQuery()
     const [categorys, setCategorys] = useState(categories?.map(category => category?.name))
+    const { data: products, isFetching } = useGetProductsQuery({ limit: 8, page })
+
+    const handleChange = (_, value) => {
+        setPage(value)
+    }
+    const lengthPage = React.useMemo(() => (Math.ceil(dataLength?.length / 8)))
 
     return (
         <Fragment>
@@ -27,11 +42,14 @@ const ProductsWrapper = ({ products, categories }) => {
             </ul>
             <div className='home__products container__ns'>
                 {
-                    products?.map(product => (
+                    isFetching ? <ProductsLoading /> : products?.map(product => (
                         <ProductsItem key={product.id} product={product} />
                     ))
                 }
             </div>
+            <Stack spacing={2} className='stack-products'>
+                <Pagination size='medium' count={lengthPage} page={page} onChange={handleChange} color="standard" />
+            </Stack>
         </Fragment>
     )
 }
